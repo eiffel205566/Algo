@@ -2,15 +2,20 @@
 //default coins are either $2, $5, or $10, can be replaced with any positive number combinations
 const outputMinCoinCombination = (num, coins = [2, 5, 10]) => {
   //start a "cache" with an Array of length n is num + 1, fill with "null"
-  const map = num < 3 ? new Array(3).fill(null) : new Array(num + 1).fill(null);
+  const map = new Array(num + 1).fill(null);
 
-  map[0] = { 2: 0, 5: 0, 10: 0 }; //coin combination when total is $0
-  map[2] = { 2: 1, 5: 0, 10: 0 }; //coin combination when total is $2
+  //transform array of coin to coin map where key is coin value and value is coin count
+  // [2,5,10] => { '2': 0, '5': 0, '10': 0 }
+  const coinMap = coins.reduce((prev, cur) => {
+    return { ...prev, [cur]: 0 };
+  }, {});
 
-  //build "cache" from $3
-  for (let i = 3; i <= num; i++) {
+  map[0] = { ...coinMap }; //initialize cache by with coinMap when total is $0
+
+  //build "cache" from $1
+  for (let i = 1; i <= num; i++) {
     inner: for (let j = coins.length - 1; j > -1; j--) {
-      let coinToTest = coins[j]; //grab each of the coin in coins
+      let coinToTest = coins[j]; //grab each of the coin in coins from largest to smallest
 
       if (i - coinToTest >= 0 && map[i - coinToTest] !== null) {
         //if cache value does exist and it is not null
@@ -31,4 +36,4 @@ const outputMinCoinCombination = (num, coins = [2, 5, 10]) => {
   return map[num];
 };
 
-console.log(outputMinCoinCombination(4727));
+console.log(outputMinCoinCombination(14));
