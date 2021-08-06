@@ -27,32 +27,16 @@ var heapSort = function (nums) {
   let result = [];
   let n = nums.length;
 
+  //start at Math.floor(n/2) - 1 as that would be the where the first parent node starts at
   for (let c = Math.floor(n / 2) - 1; c > -1; c--) {
     buildHeap(nums, n - 1, c);
   }
   while (n > 0) {
     [nums[0], nums[n - 1]] = [nums[n - 1], nums[0]];
-    result.unshift(nums.pop());
+    result.unshift(nums.pop()); //my naive way of keeping the result in a an array by completely sabotaging memory usage :DDDDD
     n--;
     buildHeap(nums, n - 1, 0);
   }
 
   return result;
 };
-const list2 = [
-  -4, 0, 7, 4, 373, 421, 919, 784, 537, 413, 526, 9, -5, -1, 0, -7, -1,
-];
-const list1 = [543, 78, 31, 18, 31, 178];
-
-const list3 = [
-  -1, 537, 784, -4, -5, 421, 0, -7, 919, 526, 9, 7, 4, 0, 413, 373, -1,
-];
-
-const list4 = [
-  -1, 537, 784, 373, 526, 421, 413, -1, -4, -5, 9, 7, 4, 0, 0, -7, 919,
-];
-
-const list5 = [-4, 0, 7, 4, 9, -5, -1, 0, -7, -1];
-
-console.log(heapSort(list5));
-// console.log(buildHeap(list4, list4.length - 2, 0));
