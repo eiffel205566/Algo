@@ -12,7 +12,7 @@ input: num: positive integer; coins: array to represent what coins to choose fro
 output: an object where key represents coin value and value represents the count of that specifc coins needed to make up for the amount
 note: output will be null if no solution is found
 
-# 2 fib in a rangeL
+# 2 fib in a range
 
 #Question description: return fib in a certain range where all numbers in returned array is >= lower bound and <= upper bound
 
