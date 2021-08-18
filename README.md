@@ -24,3 +24,7 @@ question asks to write a function returning all fib numbers within the range.
 #Question description: sort array in ascending order
 
 my merge sort solution @ mergeSort.js
+
+# 4: leetcode 324
+
+#Question description: Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
