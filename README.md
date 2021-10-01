@@ -28,3 +28,9 @@ my merge sort solution @ mergeSort.js
 # 4: leetcode 324
 
 #Question description: Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
+
+#5: screenLockStopper.py
+
+I little trick. no more autolock, enjoy, notes are in the file :D
+
+Note: running the lib will make your fan go crazy...
