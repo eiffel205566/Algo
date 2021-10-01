@@ -40,14 +40,15 @@ https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreade
 
 import ctypes
 
+
 def _SetThreadState(states):
     ctypes.windll.kernel32.SetThreadExecutionState(states)
 
 
 def __ScrnLockStopper(func,
-                      SysStatContinue = 0x80000000,
-                      SysStateRequire = 0x00000001,
-                      SysScreenUp = 0x00000002):
+                      SysStatContinue=0x80000000,
+                      SysStateRequire=0x00000001,
+                      SysScreenUp=0x00000002):
 
     def inside(*args, **kwargs):
         _SetThreadState(SysStatContinue | SysStateRequire | SysScreenUp)
@@ -55,4 +56,7 @@ def __ScrnLockStopper(func,
         return ExpectResult
     return inside
 
-    
+
+@__ScrnLockStopper
+def run():
+    print("ctrl c to stop")s

@@ -31,6 +31,6 @@ my merge sort solution @ mergeSort.js
 
 #5: screenLockStopper.py
 
-I little trick. no more autolock, enjoy, notes are in the file :D
+My little trick to stop autolock, enjoy, notes are in the file :D
 
 Note: running the lib will make your fan go crazy...
